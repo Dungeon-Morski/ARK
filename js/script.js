@@ -163,7 +163,7 @@ $(function () {
       let cutWallet = BaseWallet;
 
       let row = `
-          <div class="table-row">
+          <div class="table-ro">
               <div class="table-row_content">
                   <div class="table-row_line">
                       <p class="address">${randomString(25) + "..."}</p>
@@ -186,21 +186,21 @@ $(function () {
                   <div class="table-row_line">
                       <p class="address">${randomString(25) + "..."}</p>
                       <p class="age">right now</p>
-                      <p class="value">${outputValue + "  ETH"} </p>
+                      <p class="value">${outputValue + " ETH"} </p>
                       <p class="txfee">${txFOut.toFixed(3)}</p>
                   </div>
                   <hr class="table-row_hr">
                   <div class="table-row_line">
                       <p class="address">${cutWallet}</p>
                       <p class="age">right now</p>
-                      <p class="value">${inputValue + "  ETH"}</p>
+                      <p class="value">${inputValue + " ETH"}</p>
                       <p class="txfee">${txFIn.toFixed(3)}</p>
                   </div>
               </div>
           </div>`;
 
       $(row).hide().prependTo(".table-items").fadeIn("slow");
-      $('.table-row:eq(3)').remove();
+      $('.table-ro:eq(3)').remove();
   }
 
   createTableItem();

@@ -470,7 +470,7 @@ body {
   overflow: auto;
 }
 
-.table-row {
+.table-ro {
   color: white;
   padding: 0 20px;
   border: 1px solid #f4e07f;
@@ -480,14 +480,14 @@ body {
   min-width: 750px;
   overflow: hidden;
 }
-.table-row .out,
-.table-row .in {
+.table-ro .out,
+.table-ro .in {
   color: white;
   opacity: .5;
   padding: 20px 0;
 }
 
-.table-row:not(:last-child) {
+.table-ro:not(:last-child) {
   margin-bottom: 15px;
 }
 
@@ -520,39 +520,39 @@ body {
   margin: 17px 0;
 }
 
-.table-row p {
+.table-ro p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.table-row .address {
+.table-ro .address {
   max-width: 200px;
   width: 200px;
   color: white;
 }
 
-.table-row .block {
+.table-ro .block {
   max-width: 60px;
   width: 60px;
 }
 
-.table-row .age {
+.table-ro .age {
   max-width: 80px;
   width: 80px;
 }
 
-.table-row .value {
+.table-ro .value {
   max-width: 100px;
   width: 100px;
 }
 
-.table-row .txfee {
+.table-ro .txfee {
   max-width: 100px;
   width: 100px;
 }
 
-.table-row .block {
+.table-ro .block {
   max-width: 60px;
   width: 60px;
 }
@@ -609,7 +609,7 @@ body {
   }
 }
 @media (max-width: 900px) {
-  .table-row {
+  .table-ro {
     padding: 24px;
   }
 
