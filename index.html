@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ARK INVEST</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+</head>
+
+<body>
+  <div class="home__page flex flex-col justify-between mb-12 h-full md:h-screen">
+    <header class="header">
+      <div class="container">
+       <div class="header__items flex justify-between items-center flex-col sm:flex-row gap-4 flex-wrap">
+         <div class="header__logo">
+           <img src="images/logo.svg" alt="Лого">
+         </div>
+         <div class="header__navigation w-full sm:w-auto">
+           <ul class="header__menu flex justify-center sm:justify-between gap-16 items-center  sm:gap-12 w-full sm:w-auto">
+             <li><a href="#" v-scroll-to="#element" >HOME</a></li>
+             <li><a href="#">RULES</a></li>
+             <li><a href="#">CALCULATE</a></li>
+           </ul>
+         </div>
+         <div class="header__btn">
+           <a href="#" class="btn">PARTICIPATE</a>
+         </div>
+       </div>
+      </div>
+     </header>
+     <div class="home__greeting relative grow 	">
+       <img draggable="false" class="greeting__bg" src="images/bg-image.png" alt="">
+       <div class="container h-full pt-8 md:pt-0">
+         <div class="home__title__block sm:h-full gap-4 flex flex-col items-center justify-evenly">
+          
+           <div class="title__text flex flex-col gap-4 items-center">
+            <h1 class="gradient-text text-center ">  THE WORLD'S CRYPTO GIVEAWAY</h1>
+            <p class="gradient-text big-font text-center ">DON'T MISS YOUR CHANCE TO GET $100.000.000</p>
+              <p class="title__desc">Only today you can get $100.000.000 at our event. There won't be a second chance. Read the rules and participate.</p>
+           </div>
+              <div class="message__block relative flex justify-evenly items-center md:justify-between items-center gap-4  md:gap-[140px] flex-wrap-reverse	 md:flex-nowrap">
+                <div class="message__card w-auto sm:min-w-[350px] z-10 mix-blend-screen flex  flex-col gap-4 text-white font-medium">
+                  <h3 class="message__title gradient-text name">Cathie Wood</h3>
+                  <p class="font-normal">For the first time in history, we are holding a conference and distributing cryptocurrency. <span class="BTC gradient-text ">3.000 BTC</span> was donated for this broadcast from the largest businessmen in the world. We believe that there is a future behind cryptocurrency and we hope that this giveaway will help its implementation.</p>
+                </div>
+                <div class="message__img ">
+                  <img class='right-0 w-[150px] md:min-w-[200px] lg:max-w-prose ' src="images/woman.png" alt="woman-img">
+                </div>
+              </div>
+         </div>
+       </div>
+     </div>
+  </div>
+  <div id="app" class="rules__block relative">
+    <div class="container 	">
+      <img class='absolute right-0 top-0 z-1' src="images/graffics.png" alt="">
+     <div class="rules__items relative z-2 flex  flex-col justify-evenly ">
+      <div class="rules__item flex flex-col gap-8">
+        <h2 class="rules__title gradient-text font-extrabold	inline-block ">
+          RULES
+        </h2>
+        <div class="rules__desc ">
+          <p>To participate you just need to send from 0.1 BTC to 100 BTC (from 1 ETH to 1000 ETH) to the contribution address and we will immediately send you back from 0.2 BTC to 200 BTC (from 2 ETH to 2000 ETH) (x2 back) to the address you sent it from. </p>
+        </div>
+        <div class="rules__btns flex gap-6 flex-wrap">
+          <div class="header__btn">
+            <a href="#" class="btn">PARTICIPATE</a>
+          </div>
+          <div class="calculate__link">
+            <a class='font-bold' href="#">CALCULATE</a>
+          </div>
+        </div>
+      </div>
+      <div  class="rules__calculate mt-12 sm:mt-0 flex-col sm:flex-row gap-8 flex-wrap lg:flex-nowrap 
+      py-[30px]  lg:py-0 px-4 md:px-8 lg:px-0 flex 
+      justify-center sm:justify-between items-center">
+       <div class="from w-full sm:w-auto flex flex-col gap-[10px] lg:ml-24">
+        <label for="peas ">How many BTC or ETH do you send?</label>
+        <input  v-model="from" class='w-full' type="number" placeholder="from 0.1 to 500">
+       </div>
+       <div class="profit w-full sm:w-auto  flex flex-col gap-[10px]">
+        <label for="peas">Your profit:</label>
+        <input v-model="toUsd" class='w-full' type="text" placeholder="BTC/ETH"> 
+        
+       </div>
+     
+       <div class="calculate__btn sm:ml-auto lg:ml-0  flex flex-col gap-[15px]">
+        <label class='text-transparent hidden-label ' >f</label>
+        <button @click="onCalc" href="#" class="btn mb-1 ">PARTICIPATE</button>
+      </div>
+      <img class='hidden lg:block' src="images/calculator.png" alt="">
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="qrcode__block">
+    <div class="container">
+      <div class="qrcode__items  ">
+        <div class="left-side   ">
+          <img  class='' src="images/rqcode.png" alt="qrcode">
+          <div class="left__side__text   ">
+            <h2 class=" text-white side__title ">Send your <span class="gradient-text">BTC</span> to the address for X2 back</h2>
+            <p class="wallet text-white bc-adress">bc1qt899hllu4h7k5y64t536yxzc0pksdelf09jgux</p>
+          
+              <div class="header__btn">
+           <a href="#" class="btn">COPY ADDRESS</a>
+         </div>
+          </div>
+        </div>
+        <div class="right__side ">
+          <img class=''  src="images/rqcode.png" alt="qrcode">
+          <div class="right__side__text    ">
+            <h2 class=" text-white side__title">Send your <span class="gradient-text">ETH</span> to the address for X2 back</h2>
+            <p class="wallet text-white eth-adress">0x3E5C957984D3a8b2776711dB360cffF4c4A5fd69</p>
+             
+              <div class="header__btn">
+           <a href="#" class="btn">COPY ADDRESS</a>
+         </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+ <!-- <div class="transition__block ">
+   
+    
+     
+        <div class="transactions-container ">
+        
+          <div class="transactions-header x-auto  ">
+            <p class="TxHash">TxHash</p>
+            <p class="Block">Block</p>
+            <p class="From">From</p> 
+            <p class="text-transparent	check">3h4</p>
+            
+           
+            <p class="To">To</p> 
+            <p class="Age">Age</p>
+            <p class="Value">Value</p> 
+            <p class="TxFee">TxFee</p>
+          </div>
+    
+          <div class="transactions-body mx-auto ">
+            <div class="transactions-row">
+              <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+              <p class="Block">236783</p>
+              <p class="From">rDQXmZ2kPZZtxqGJVyv...</p> 
+              <p class="check">
+                OUT
+              </p>
+              <p class="To">qq8WgcrARpFvMebmNY...</p> 
+              <p class="Age">right now</p>
+              <p class="Value">273766.6 X...</p> 
+              <p class="TxFee">193.923</p>
+            </div>
+            <div class="transactions-row">
+              <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+              <p class="Block">236783</p>
+              <p class="From">rDQXmZ2kPZZtxqGJVyv...</p>
+              <p class="check">IN</p>
+              <p class="To">qq8WgcrARpFvMebmNY...</p> 
+              <p class="Age">right now</p>
+              <p class="Value">273766.6 X...</p> 
+              <p class="TxFee">193.923</p>
+            </div>
+          </div>
+       
+         
+        </div>
+    
+      
+   
+  
+ </div> -->
+
+
+ <div class="container overflow-x-auto">
+ 
+  <!-- <div class="transactions-container">
+    
+    <div class="transactions-header">
+      <p class="TxHash">TxHash</p>
+      <p class="Block">Block</p>
+      <p class="From">From</p> 
+      <p class="check"></p>
+      <p class="To">To</p> 
+      <p class="Age">Age</p>
+      <p class="Value">Value</p> 
+      <p class="TxFee">TxFee</p>
+    </div>
+
+   <div class="table-items">
+    <div class="transactions-body">
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p> 
+        <p class="check">
+          OUT<span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+            <path d="M2 7.41667L6.94118 12L16 2" stroke="#13161A" stroke-width="3"/>
+            </svg></span>
+        </p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p>
+        <p class="check">IN</p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+    </div>
+
+    <div class="transactions-body">
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p> 
+        <p class="check">
+          OUT<span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+            <path d="M2 7.41667L6.94118 12L16 2" stroke="#13161A" stroke-width="3"/>
+            </svg></span>
+        </p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p>
+        <p class="check">IN</p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+    </div>
+    <div class="transactions-body">
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p> 
+        <p class="check">
+          OUT<span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="15" viewBox="0 0 18 15" fill="none">
+            <path d="M2 7.41667L6.94118 12L16 2" stroke="#13161A" stroke-width="3"/>
+            </svg></span>
+        </p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+      <div class="transactions-row">
+        <p class="TxHash">SwVzaniThoywS0n1VBUft...</p>
+        <p class="Block">236783</p>
+        <p class="From">rDQXmZ2kPZZtxqGJVyv...</p>
+        <p class="check">IN</p>
+        <p class="To">qq8WgcrARpFvMebmNY...</p> 
+        <p class="Age">right now</p>
+        <p class="Value">273766.6 X...</p> 
+        <p class="TxFee">193.923</p>
+      </div>
+    </div>
+   </div>
+  </div> -->
+  <div class="table" id="table">
+    <div class="table-content">
+        <div class="table-header">
+            <div class="table-header_row">
+                <p class="address">TxHash</p>
+                <p class="block">Block</p>
+                <p class="address">From</p>
+            </div>
+            <div class="table-header_separator"></div>
+            <div class="table-header_row">
+                <p class="address">To</p>
+                <p class="age">Age</p>
+                <p class="value">Value</p>
+                <p class="txfee">TxFee</p>
+            </div>
+        </div>
+        <div class="table-items"><div class="table-row" style="">
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">SLV5C0KmF3zrq9sOkqs57XDio...</p>
+            <p class="block">874385</p>
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">e0JNyqwQarWK209RI3Ltw5dNg...</p>
+            <p class="block">777872</p>
+            <p class="address">HFdudQc36O42zP6TZGpAAT2y3...</p>
+        </div>
+    </div>
+    <div class="table-row_separator">
+        <p>OUT</p>
+        
+        <p>IN</p>
+    </div>
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">Yzu9perqymcB5g2ppdZALumuq...</p>
+            <p class="age">right now</p>
+            <p class="value">318569.2  XRP</p>
+            <p class="txfee">318.569</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+            <p class="age">right now</p>
+            <p class="value">159284.6  XRP</p>
+            <p class="txfee">159.285</p>
+        </div>
+    </div>
+</div><div class="table-row" style="">
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">N2daZnae0XaRvtmVuyBBHD4um...</p>
+            <p class="block">385776</p>
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">HIcLkgUF7GuVQUAiPiFONUdES...</p>
+            <p class="block">577195</p>
+            <p class="address">u05ORVijfESSTtTQNKGs3HZP6...</p>
+        </div>
+    </div>
+    <div class="table-row_separator">
+        <p>OUT</p>
+       
+        <p>IN</p>
+    </div>
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">ot5rKrbQNgqJr3O9BdxhTRKWV...</p>
+            <p class="age">right now</p>
+            <p class="value">288006.6  XRP</p>
+            <p class="txfee">288.007</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+            <p class="age">right now</p>
+            <p class="value">144003.3  XRP</p>
+            <p class="txfee">144.003</p>
+        </div>
+    </div>
+</div><div class="table-row" style="">
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">X70RUvK8Phnn0kwA6skOXTwBF...</p>
+            <p class="block">366565</p>
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">ROEQR1djfGmwkZMHCMTsMFFdK...</p>
+            <p class="block">633427</p>
+            <p class="address">Ah0G89PUGwIySOSsl5DsnfG0f...</p>
+        </div>
+    </div>
+    <div class="table-row_separator">
+        <p class="out">OUT</p>
+      
+        <p class="in">IN</p>
+    </div>
+    <div class="table-row_content">
+        <div class="table-row_line">
+            <p class="address">Eh0bMy1dQHSx1T8RCbM1lvAiz...</p>
+            <p class="age">right now</p>
+            <p class="value">180524.6  XRP</p>
+            <p class="txfee">180.525</p>
+        </div>
+        <hr class="table-row_hr">
+        <div class="table-row_line">
+            <p class="address">rDQXmZ2kPZZtxqGJVyvP3mFhvqnmixmcxr</p>
+            <p class="age">right now</p>
+            <p class="value">90262.3  XRP</p>
+            <p class="txfee">90.262</p>
+        </div>
+    </div>
+</div></div>
+    </div>
+</div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="py-8 text-center font-bold	 text-white">ARK Invest © 2022</p>
+  </div>
+</footer>
+  <style>
+    
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   
+    -webkit-appearance: none;
+    margin: 0; 
+}
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script></script>
+<script>
+  
+ 
+
+let vm = new Vue({
+  el: "#app",
+  data: () => ({
+    from: '',
+    result: '',
+    message: 'You loaded this page on ',
+  }),
+  computed: {
+    toUsd(){
+      return this.from * 2
+    }
+  },
+  methods: {
+    onCalc(){
+      let {from,result} = this;
+      console.log("Работает ", from, result);
+    }
+  }
+})
+
+
+
+
+
+
+</script>
+  
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/script.js"></script>
+  <script src="js/swiper.js"></script>
+</body>
+
+</html>
