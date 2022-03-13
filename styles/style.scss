@@ -73,21 +73,161 @@ body {
     font-family: 'Open Sans', sans-serif;
    
 }
+.overlay.active {
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top:0;
+    left:0;
+}
+
 .header {
     background:rgba(25,25,26, .6);
-  
+
+
+
+
+
+  @media screen and (max-width:640px) {
+      .header__items {
+          height: 10vh;
+          &.active {
+            height: 100vh;
+            transition-duration: .5s;
+            justify-content: center;
+            gap:8%;
+          }
+          a{
+              font-size: 18px;
+          }
+      }
+      
+      .header__menu {
+         
+          
+          &.active {
+            min-height: 400px;
+          }
+      }
+      .header__btn{
+        overflow: hidden;
+        height: 0;
+        display: flex;
+        align-items: center;
+        a{
+
+        }
+        &.active {
+          height: min-content;
+        
+        }
+          
+      }
+      
+      
+      .header__navigation {
+        display: none;
+
+          &.active {
+              display: block;
+          }
+      }
+      
+      .burger__menu.active {
+        .burger__btn{
+           
+            &:first-child {
+               
+                border-radius: 0px;
+                top:50%;
+                transform: translateY(-50%);
+                
+            }
+
+            &:nth-child(2) {
+                border-radius: 0px;
+                z-index: 5;
+                height: 10px;
+            }
+            &:last-child {
+                border-radius: 0px;
+                bottom:50%;
+                transform: translateY(-50%);
+               
+            }
+
+        }
+      }
+      .burger__menu {
+          color:white;
+         margin-right: 5px;
+          height: 50px;
+          display: flex;
+        flex-direction: column;
+          align-items: center;
+          background-color: #313131;
+          border-radius: 5px;
+          position: relative;
+          cursor: pointer;
+          
+          transition-duration: .5s;
+          width: 55px;
+         
+          .burger__btn {
+              height: 3px;
+              background-color: white;
+              width: 80%;
+               
+                
+              padding:0px 10px;
+              border-radius: 5px;
+              transition-duration: .5s;
+             position: absolute;
+            &:first-child {
+                top:10px;
+                
+            }
+            &:last-child {
+                bottom:10px;
+            }
+            &:nth-child(2) {
+                top:50%;
+                transform: translateY(-50%);
+            }
+          }
+      }
+  }
     
 }
 .header__items {
-    .header__menu {
-        
-    }
-    padding: 40px 0;
+    
+    
     a{
         color: hsla(0, 0%, 100%, 1);
         font-size: 14px;
+       
     }
-    
+    .header__navigation {
+        a{
+            &:hover {
+                transition-duration: .5s;
+                color:#F4E07F;
+            }  
+            transition-duration: .5s;
+        }
+    }
+    .header__btn {
+        a{
+            transition-duration: .5s;
+            &:hover {
+            
+                color:#ffffff;
+                transition-duration: .5s;
+            }   
+        }
+    }
     
 }
 .header__btn {
@@ -95,7 +235,11 @@ body {
         color: hsla(240, 1%, 15%, 1);
         padding:8px 24px;
         font-weight: bold;
-        
+        transition-duration: .5s;
+        &:hover {
+            color:white;
+            transition-duration: .5s;
+        }
         background: linear-gradient(94.55deg, #F4E07F 4.8%, #E1A93C 28.99%, #F4E07F 76.56%, #E1A93C 94.98%);
     }
 }
@@ -181,7 +325,15 @@ body {
             color: rgb(255, 255, 255);
             box-shadow: 0 0px 0 1px #f4e07f;
         padding:7px 24px;
+        transition-duration: .5s;
         font-weight: bold;
+        &:hover {
+            background-color: #fbfbfb;
+            transition-duration: .5s;
+            color:black;
+            box-shadow: 0 0px 0 1px #fbfbfb;
+            
+        }
         }
     }
     .rules__title {
@@ -205,7 +357,15 @@ body {
         height: 50px; 
         padding:0px 24px;
         background: linear-gradient(94.55deg, #F4E07F 4.8%, #E1A93C 28.99%, #F4E07F 76.56%, #E1A93C 94.98%);
-        border:none;  
+        border:none; 
+        transition-duration: .5s;
+        &:hover {
+            transition-duration: .5s;
+           
+                color:white;
+                transition-duration: .5s;
+          
+        } 
        } 
         
     }
@@ -249,7 +409,7 @@ body {
     
     .wallet {
         word-break: break-all;
-        padding:0 10px;
+        
     }
 
     img {
@@ -282,7 +442,7 @@ body {
     }
     @media screen and (max-width:1280px) {
         .qrcode__items  {
-            justify-content: space-around;
+            justify-content: space-evenly;
            width: 100%;
         }
         .left-side,
@@ -326,10 +486,8 @@ body {
 }
 
 // до
-@media screen and (max-width:1024px) {
-    .hidden-label {
-       display: none !important;
-    }
+@media screen and (max-width:800px) {
+    
     label {
         white-space: normal;
     }
@@ -339,7 +497,11 @@ body {
         }
     }
 }
-
+@media screen and (max-width:500px) {
+    .rules__btns {
+        justify-content: center;
+    }
+}
 // после
 @media screen and (min-width:1024px) {
     .hidden-label {
@@ -349,102 +511,6 @@ body {
         white-space: nowrap;
     }
 }
-
-// .transactions-container {
-//         overflow-x: auto;
-//     max-width: 1300px;
-//     margin:0 auto;
-    
-//     &::-webkit-scrollbar-thumb {
-//         border: 5px solid red; 
-//         border-radius: 32px;
-//         cursor: pointer;
-//     }
-    
-//     p {
-//         display: block;
-//         overflow-x: hidden;
-//         overflow-y: clip;
-//         white-space: nowrap;
-//         color:#ffffff;
-//         text-overflow: ellipsis;
-//         height: 100%;
-        
-//         &.TxHash {
-//             min-width: 180px; 
-//         }
-//         &.Block {
-//             min-width: 60px; 
-//         }
-//         &.From {
-//             min-width: 200px; 
-//         }
-//         &.check {
-//             min-width: 50px;
-//             text-align: center;
-//             color: #565656;
-//             overflow: visible;
-//         }
-//         &.To {
-//             min-width: 160px; 
-//             max-width: 200px;
-//         }
-//         &.Age {
-//             min-width: 70px; 
-//         }
-//         &.Value {
-//             min-width: 75px; 
-//         }
-//         &.TxFee {
-//             min-width: 100px; 
-//         }
-//     }
-//     .transactions-header {
-//         border-radius: 20px;
-//         display: flex;
-//         justify-content: space-between;
-//         padding: 20px 41px;
-//         gap: 35px;
-//         p {
-            
-//             font-size: 18px;
-//             font-weight: 500;
-//         }
-//         .text-transparent {
-//             color:transparent !important;
-//             min-width: 50px;
-//         }
-        
-//     }
-//     .transactions-body {
-//         display: flex;
-//         flex-direction: column;
-        
-//         background-color: #19191A;
-//         margin-bottom: 10px;
-//         width: 99%;
-//         box-shadow: 0 0px 0 1px rgba(244,224,127,1), 0 0 1px rgba(244,224,127,1);
-//         .transactions-row {
-//             display: flex;
-//             align-items: center;
-//             justify-content: space-between;
-//             min-height: 74px;
-//             padding: 0 41px;
-            
-//             width: 100%;
-//             gap: 35px;
-//             &:first-of-type {
-//                 border-bottom: 2px solid #1D2024;
-                
-//             }
-//             .check {
-//                 color:rgba(255, 255, 255, .5);
-//                 min-width: 50px;
-//                 font-size: 16px !important;
-//             }
-//         }
-//     }
-// }
 
 .transactions-container {
         
@@ -678,11 +744,17 @@ body {
 	align-items: center;
 	min-width: 750px;
 	overflow: hidden;
+    transition-duration: .5s;
     .out,
     .in {
         color:rgb(255, 255, 255);
         opacity:.5;
         padding:20px 0;
+    }
+    &:hover {
+        transform: translateY(-5px);
+        cursor: pointer;
+        transition-duration: .5s;
     }
 }
 

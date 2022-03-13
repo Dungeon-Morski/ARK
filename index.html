@@ -21,23 +21,31 @@
 
 </head>
 
-<body>
+<body class="relative">
+  <div class="overlay">
+
+  </div>
   <div class="home__page flex flex-col justify-between mb-12 h-full md:h-screen">
     <header class="header">
       <div class="container">
-       <div class="header__items flex justify-between items-center flex-col sm:flex-row gap-4 flex-wrap">
+       <div class="header__items py-[20px] md:py-[25px] flex  sm:flex-row justify-between items-center  gap-8 sm:gap-4  ">
          <div class="header__logo">
            <img src="images/logo.svg" alt="Лого">
          </div>
-         <div class="header__navigation w-full sm:w-auto">
-           <ul class="header__menu flex justify-center sm:justify-between gap-16 items-center  sm:gap-12 w-full sm:w-auto">
-             <li><a href="#" v-scroll-to="#element" >HOME</a></li>
-             <li><a href="#">RULES</a></li>
-             <li><a href="#">CALCULATE</a></li>
+         <div class="header__navigation  w-full sm:w-auto">
+           <ul class="header__menu flex flex-col sm:flex-row justify-center sm:justify-between gap-12 sm:gap-16 items-center  sm:gap-12 w-full sm:w-auto ">
+             <li><a href="#" v-scroll-to="#element"  class="scroll-to">HOME</a></li>
+             <li><a href="#" class="scroll-to" >RULES</a></li>
+             <li><a href="#" class="scroll-to">CALCULATE</a></li>
            </ul>
          </div>
          <div class="header__btn">
-           <a href="#" class="btn">PARTICIPATE</a>
+           <a href="#" class="btn scroll-to">PARTICIPATE</a>
+         </div>
+         <div class="burger__menu block sm:hidden">
+           <div class="burger__btn first__btn"></div>
+           <div class="burger__btn center__btn"></div>
+           <div class="burger__btn last__btn"></div>
          </div>
        </div>
       </div>
@@ -58,14 +66,14 @@
                   <p class="font-normal">For the first time in history, we are holding a conference and distributing cryptocurrency. <span class="BTC gradient-text ">3.000 BTC</span> was donated for this broadcast from the largest businessmen in the world. We believe that there is a future behind cryptocurrency and we hope that this giveaway will help its implementation.</p>
                 </div>
                 <div class="message__img ">
-                  <img class='right-0 w-[150px] md:min-w-[200px] lg:max-w-prose ' src="images/woman.png" alt="woman-img">
+                  <img class='right-0 w-[150px] md:min-w-[200px] lg:max-w-prose ' src="images/woman.png" alt="woman-img" draggable="false">
                 </div>
               </div>
          </div>
        </div>
      </div>
   </div>
-  <div id="app" class="rules__block relative">
+  <div id="app" class="rules__block relative tot" >
     <div class="container 	">
       <img class='absolute right-0 top-0 z-1' src="images/graffics.png" alt="">
      <div class="rules__items relative z-2 flex  flex-col justify-evenly ">
@@ -73,19 +81,19 @@
         <h2 class="rules__title gradient-text font-extrabold	inline-block ">
           RULES
         </h2>
-        <div class="rules__desc ">
+        <div class="rules__desc " >
           <p>To participate you just need to send from 0.1 BTC to 100 BTC (from 1 ETH to 1000 ETH) to the contribution address and we will immediately send you back from 0.2 BTC to 200 BTC (from 2 ETH to 2000 ETH) (x2 back) to the address you sent it from. </p>
         </div>
         <div class="rules__btns flex gap-6 flex-wrap">
           <div class="header__btn">
-            <a href="#" class="btn">PARTICIPATE</a>
+            <a href="#" class="btn scroll-to" >PARTICIPATE</a>
           </div>
           <div class="calculate__link">
-            <a class='font-bold' href="#">CALCULATE</a>
+            <a class='font-bold scroll-to' href="#">CALCULATE</a>
           </div>
         </div>
       </div>
-      <div  class="rules__calculate mt-12 sm:mt-0 flex-col sm:flex-row gap-8 flex-wrap lg:flex-nowrap 
+      <div  class="rules__calculate  mt-12 sm:mt-0 flex-col sm:flex-row gap-8 flex-wrap lg:flex-nowrap 
       py-[30px]  lg:py-0 px-4 md:px-8 lg:px-0 flex 
       justify-center sm:justify-between items-center">
        <div class="from w-full sm:w-auto flex flex-col gap-[10px] lg:ml-24">
@@ -98,9 +106,9 @@
         
        </div>
      
-       <div class="calculate__btn sm:ml-auto lg:ml-0  flex flex-col gap-[15px]">
-        <label class='text-transparent hidden-label ' >f</label>
-        <button @click="onCalc" href="#" class="btn mb-1 ">PARTICIPATE</button>
+       <div class="calculate__btn sm:ml-auto lg:ml-0  flex flex-col gap-[15px] " >
+        <label class='text-transparent hidden-label hidden lg:block' >f</label>
+        <button @click="onCalc" href="#" class="btn mb-1 scroll-tok">PARTICIPATE</button>
       </div>
       <img class='hidden lg:block' src="images/calculator.png" alt="">
       </div>
@@ -111,24 +119,24 @@
     <div class="container">
       <div class="qrcode__items  ">
         <div class="left-side   ">
-          <img  class='' src="images/rqcode.png" alt="qrcode">
+          <img  draggable="false" class='' src="images/rqcode.png" alt="qrcode">
           <div class="left__side__text   ">
             <h2 class=" text-white side__title ">Send your <span class="gradient-text">BTC</span> to the address for X2 back</h2>
-            <p class="wallet text-white bc-adress">bc1qt899hllu4h7k5y64t536yxzc0pksdelf09jgux</p>
+            <p class="wallet text-white bc-adress btc-adress">bc1qt899hllu4h7k5y64t536yxzc0pksdelf09jgux</p>
           
               <div class="header__btn">
-           <a href="#" class="btn">COPY ADDRESS</a>
+           <a href="#" class="btn copy__btn">COPY ADDRESS</a>
          </div>
           </div>
         </div>
         <div class="right__side ">
-          <img class=''  src="images/rqcode.png" alt="qrcode">
-          <div class="right__side__text    ">
+          <img draggable="false" class=''  src="images/rqcode.png" alt="qrcode">
+          <div class="right__side__text  ">
             <h2 class=" text-white side__title">Send your <span class="gradient-text">ETH</span> to the address for X2 back</h2>
             <p class="wallet text-white eth-adress">0x3E5C957984D3a8b2776711dB360cffF4c4A5fd69</p>
              
               <div class="header__btn">
-           <a href="#" class="btn">COPY ADDRESS</a>
+           <a href="#" class="btn copy__btn">COPY ADDRESS</a>
          </div>
           </div>
         </div>
@@ -191,7 +199,7 @@
             <p class="txfee">159.285</p>
         </div>
     </div>
-</div><div class="table-ro" style="">
+</div><div class="table-ro" >
     <div class="table-row_content">
         <div class="table-row_line">
             <p class="address">N2daZnae0XaRvtmVuyBBHD4um...</p>
@@ -225,7 +233,7 @@
             <p class="txfee">144.003</p>
         </div>
     </div>
-</div><div class="table-ro" style="">
+</div><div class="table-ro" >
     <div class="table-row_content">
         <div class="table-row_line">
             <p class="address">X70RUvK8Phnn0kwA6skOXTwBF...</p>
@@ -298,7 +306,7 @@ let vm = new Vue({
   methods: {
     onCalc(){
       let {from,result} = this;
-      console.log("Работает ", from, result);
+      
     }
   }
 })
