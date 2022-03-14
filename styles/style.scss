@@ -201,6 +201,34 @@ body {
   }
     
 }
+.upper__btn {
+    border-radius: 50%;
+    border-color: red;
+    padding:10px;
+    z-index: 22;
+  
+    background-color: white;
+    opacity: .3;
+    width: 50px;
+    height: 50px;
+    right: 3%;
+    display: flex;
+    justify-content: center;
+    bottom: 3%;
+    &:hover {
+        background-color: white;
+        opacity:.1;
+        cursor: pointer;
+    }
+    svg {
+        
+        transform: rotate(-90deg);
+        
+       z-index: -1;
+       
+        
+    }
+}
 .header__items {
     
     
@@ -221,6 +249,7 @@ body {
     .header__btn {
         a{
             transition-duration: .5s;
+            
             &:hover {
             
                 color:#ffffff;
@@ -234,6 +263,7 @@ body {
     a{
         color: hsla(240, 1%, 15%, 1);
         padding:8px 24px;
+        
         font-weight: bold;
         transition-duration: .5s;
         &:hover {
@@ -319,6 +349,9 @@ body {
     }
     .rules__btns {
         margin-top: 20px;
+        a{
+            display: block;
+        }
     }
     .calculate__link {
         a{

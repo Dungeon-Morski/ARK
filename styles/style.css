@@ -166,6 +166,30 @@ body {
   }
 }
 
+.upper__btn {
+  border-radius: 50%;
+  border-color: red;
+  padding: 10px;
+  z-index: 22;
+  background-color: white;
+  opacity: .3;
+  width: 50px;
+  height: 50px;
+  right: 3%;
+  display: flex;
+  justify-content: center;
+  bottom: 3%;
+}
+.upper__btn:hover {
+  background-color: white;
+  opacity: .1;
+  cursor: pointer;
+}
+.upper__btn svg {
+  transform: rotate(-90deg);
+  z-index: -1;
+}
+
 .header__items a {
   color: white;
   font-size: 14px;
@@ -262,6 +286,9 @@ body {
 }
 .rules__block .rules__btns {
   margin-top: 20px;
+}
+.rules__block .rules__btns a {
+  display: block;
 }
 .rules__block .calculate__link a {
   color: white;

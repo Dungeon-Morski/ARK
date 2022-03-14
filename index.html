@@ -23,9 +23,14 @@
 
 <body class="relative">
   <div class="overlay">
-
+    
   </div>
-  <div class="home__page flex flex-col justify-between mb-12 h-full md:h-screen">
+  <a href="#home"  class="upper__btn fixed border upper ">
+    <svg class="arrow-top-3" viewBox="0 0 5 9">
+      <path d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z" />
+  </svg>
+  </a>
+  <div id="home" class="home__page flex flex-col justify-between mb-12 h-full md:h-screen">
     <header class="header">
       <div class="container">
        <div class="header__items py-[20px] md:py-[25px] flex  sm:flex-row justify-between items-center  gap-8 sm:gap-4  ">
@@ -34,13 +39,13 @@
          </div>
          <div class="header__navigation  w-full sm:w-auto">
            <ul class="header__menu flex flex-col sm:flex-row justify-center sm:justify-between gap-12 sm:gap-16 items-center  sm:gap-12 w-full sm:w-auto ">
-             <li><a href="#" v-scroll-to="#element"  class="scroll-to">HOME</a></li>
-             <li><a href="#" class="scroll-to" >RULES</a></li>
-             <li><a href="#" class="scroll-to">CALCULATE</a></li>
+             <li><a href="#"  class="" >HOME</a></li>
+             <li><a href="#rules" class="" >RULES</a></li>
+             <li><a href="#rules" class="">CALCULATE</a></li>
            </ul>
          </div>
          <div class="header__btn">
-           <a href="#" class="btn scroll-to">PARTICIPATE</a>
+           <a href="#qrcode" class="btn ">PARTICIPATE</a>
          </div>
          <div class="burger__menu block sm:hidden">
            <div class="burger__btn first__btn"></div>
@@ -73,27 +78,27 @@
        </div>
      </div>
   </div>
-  <div id="app" class="rules__block relative tot" >
-    <div class="container 	">
+  <div id="app" class="rules__block relative tot"  >
+    <div class="container " id="rules">
       <img class='absolute right-0 top-0 z-1' src="images/graffics.png" alt="">
      <div class="rules__items relative z-2 flex  flex-col justify-evenly ">
       <div class="rules__item flex flex-col gap-8">
         <h2 class="rules__title gradient-text font-extrabold	inline-block ">
           RULES
         </h2>
-        <div class="rules__desc " >
+        <div class="rules__desc " id="qrcode">
           <p>To participate you just need to send from 0.1 BTC to 100 BTC (from 1 ETH to 1000 ETH) to the contribution address and we will immediately send you back from 0.2 BTC to 200 BTC (from 2 ETH to 2000 ETH) (x2 back) to the address you sent it from. </p>
         </div>
         <div class="rules__btns flex gap-6 flex-wrap">
           <div class="header__btn">
-            <a href="#" class="btn scroll-to" >PARTICIPATE</a>
+            <a href="#rqcod" class="btn " >PARTICIPATE</a>
           </div>
           <div class="calculate__link">
-            <a class='font-bold scroll-to' href="#">CALCULATE</a>
+            <a class='font-bold ' href="#">CALCULATE</a>
           </div>
         </div>
       </div>
-      <div  class="rules__calculate  mt-12 sm:mt-0 flex-col sm:flex-row gap-8 flex-wrap lg:flex-nowrap 
+      <div    class="rules__calculate  mt-12 sm:mt-0 flex-col sm:flex-row gap-8 flex-wrap lg:flex-nowrap 
       py-[30px]  lg:py-0 px-4 md:px-8 lg:px-0 flex 
       justify-center sm:justify-between items-center">
        <div class="from w-full sm:w-auto flex flex-col gap-[10px] lg:ml-24">
@@ -108,14 +113,14 @@
      
        <div class="calculate__btn sm:ml-auto lg:ml-0  flex flex-col gap-[15px] " >
         <label class='text-transparent hidden-label hidden lg:block' >f</label>
-        <button @click="onCalc" href="#" class="btn mb-1 scroll-tok">PARTICIPATE</button>
+        <button @click="onCalc" href="#" class="btn mb-1 ">PARTICIPATE</button>
       </div>
       <img class='hidden lg:block' src="images/calculator.png" alt="">
       </div>
      </div>
     </div>
   </div>
-  <div class="qrcode__block">
+  <div class="qrcode__block" id="rqcod">
     <div class="container">
       <div class="qrcode__items  ">
         <div class="left-side   ">
@@ -136,7 +141,7 @@
             <p class="wallet text-white eth-adress">0x3E5C957984D3a8b2776711dB360cffF4c4A5fd69</p>
              
               <div class="header__btn">
-           <a href="#" class="btn copy__btn">COPY ADDRESS</a>
+           <a href="#" class="btn copy__btn ">COPY ADDRESS</a>
          </div>
           </div>
         </div>
@@ -318,8 +323,8 @@ let vm = new Vue({
 
 </script>
   
-
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"/>
+<script src="https://kit.fontawesome.com/8e103f078e.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>

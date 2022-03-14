@@ -227,28 +227,65 @@ document.querySelector('.burger__menu').addEventListener('click',()=> {
 })
 
 
-const anchors = document.querySelectorAll('a.scroll-to')
-
-for (let anchor of anchors) {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault()
-    
-    const blockID = anchor.getAttribute('href')
-    
-    document.querySelector('.rules__block').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-  })
-}
 
 
 document.querySelectorAll('.copy__btn').forEach(function(el){
-    el.addEventListener('click',()=> {
-        navigator.clipboard.writeText(document.querySelector('.btc-adress').innerHTML);
+    el.addEventListener('click',function(event) {
+        event.preventDefault();
+        navigator.clipboard.writeText(event.target.parentNode.parentNode.querySelector('p').innerHTML);
+       
         
         
     })
    
 });
 
+
+
+
+
+window.addEventListener('load', function(){
+	const anchors = document.querySelectorAll('a[href*="#"]'),
+		  speed = 0.9;
+	anchors.forEach(anchor => {
+		anchor.addEventListener('click', function(event) {
+            event.preventDefault();
+			if (this.hash !== "" && this.hash !== "#") {
+				
+				let hash = this.hash.replace(/[^#]*(.*)/, '$1'),
+					start = null,
+					w = window.pageYOffset,
+					t;
+				if(document.querySelector(hash)) {		
+					t = document.querySelector(hash).getBoundingClientRect().top;	
+					requestAnimationFrame(step);
+				}	
+				function step(time) {
+					if (start === null) start = time;
+					let progress = time - start,
+						r = (t < 0 ?
+							Math.max(w - progress/speed, w + t) :
+							Math.min(w + progress/speed, w + t));
+					window.scrollTo(0,r);
+					if (r != w + t) {
+						requestAnimationFrame(step)
+					} else {
+						location.hash = hash;
+					}
+				}
+			}
+		}, false);
+	});
+});
+
+
+
+
+    $(window).scroll(function(e) {
+        if($(window).scrollTop()>=200) {
+            
+          $('.upper__btn').fadeIn(200);
+        } else {
+          $('.upper__btn').fadeOut(200);
+        }
+     });
